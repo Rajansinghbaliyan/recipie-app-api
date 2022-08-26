@@ -221,4 +221,9 @@ cython_debug/
 .docker
 
 ##Project_related
-**/__pycache__/
+__pychache__/
+app/__pycache__/
+app/*/__pycache__/
+app/*/*/__pycache__/
+app/*/*/*/__pycache__/
+app/*/*/*/*/__pycache__/
