@@ -1,18 +1,19 @@
 ---
-  on:
-    pull_request:
-      types:
-        - opened
-  jobs:
-    test-lint:
-      name: Test and Lint
-      runs-on: ubuntu-20.04
-      steps:
+on:
+  pull_request:
+    types:
+      - opened
+jobs:
+  test-lint:
+    name: Test and Lint
+    runs-on: ubuntu-20.04
+    environment: development
+    steps:
         - name: Login to Docker Hub
-          uses: docker/login-action@v1
+          uses: docker/login-action@v2.0.0
           with:
-            username: {{secrets.DOCKERHUB_USER}}
-            password: {{secrets.DOCKERHUB_TOKEN}}
+             username: ${{ secrets.DOCKERHUB_USERNAME }}
+             password: ${{ secrets.DOCKERHUB_TOKEN }}
         - name: Checkout
           uses: actions/checkout@v2
         - name: Test
